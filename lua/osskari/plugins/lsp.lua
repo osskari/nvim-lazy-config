@@ -14,19 +14,17 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
             callback = function(event)
-                local opts = { buffer = event.buf }
-
                 -- buffer local keybinds
-                vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
-                vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
-                vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)
-                vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts)
-                vim.keymap.set("n", "<leader>go", vim.lsp.buf.type_definition, opts)
-                vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
-                vim.keymap.set("n", "<leader>gs", vim.lsp.buf.signature_help, opts)
-                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
-                vim.keymap.set({"n", "x"}, "<leader>cf", function() vim.lsp.buf.format({async = true}) end, opts)
-                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+                vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {desc = "Hover", buffer = event.buf})
+                vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {desc = "Definition", buffer = event.buf})
+                vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {desc = "Declaration", buffer = event.buf})
+                vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {desc = "Implementation", buffer = event.buf})
+                vim.keymap.set("n", "<leader>go", vim.lsp.buf.type_definition, {desc = "Type definition", buffer = event.buf})
+                vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {desc = "References", buffer = event.buf})
+                vim.keymap.set("n", "<leader>gs", vim.lsp.buf.signature_help, {desc = "Signature help", buffer = event.buf})
+                vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {desc = "Rename", buffer = event.buf})
+                vim.keymap.set({"n", "x"}, "<leader>cf", function() vim.lsp.buf.format({async = true}) end, {desc = "Format", buffer = event.buf})
+                vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {desc = "Code action", buffer = event.buf})
             end,
         })
 
@@ -47,14 +45,17 @@ return {
         })
 
         local cmp = require('cmp')
+        local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
         cmp.setup({
             sources = {
                 {name = "nvim_lsp"},
             },
             mapping = cmp.mapping.preset.insert({
-                ["<CR>"] = cmp.mapping.confirm({select = false}),
+                ["<CR>"] = cmp.mapping.confirm({select = true}),
                 ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+                ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
             }),
             snippet = {
                 expand = function(args)
