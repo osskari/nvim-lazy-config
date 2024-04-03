@@ -9,7 +9,7 @@ return {
     },
     config = function()
         -- Global keybinds
-        vim.keymap.set("n", "<leader>gl", vim.diagnostic.open_float, { desc = "Open diagnostic menu" })
+        vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open diagnostic menu" })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP actions",
