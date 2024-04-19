@@ -24,6 +24,8 @@ vim.opt.undofile = true
 -- search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 -- colors
 vim.opt.termguicolors = true
@@ -35,4 +37,3 @@ vim.opt.isfname:append("@-@")
 
 -- color 80th column
 vim.opt.colorcolumn = "80"
-
