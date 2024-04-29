@@ -13,4 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 
-require("lazy").setup("osskari.plugins")
+require("lazy").setup({
+  spec = "osskari.plugins",
+  change_detection = { notify = false },
+})

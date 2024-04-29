@@ -1,4 +1,5 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- line numbers
 vim.opt.nu = true
@@ -22,7 +23,6 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- search
-vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
@@ -31,9 +31,35 @@ vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 
 -- scrolloff
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
--- color 80th column
+-- columns
 vim.opt.colorcolumn = "80"
+vim.opt.signcolumn = 'yes'
+
+
+-- timeouts
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- split directions
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- highlight current cursor line
+vim.opt.cursorline = true
+
+-- clear highlight search
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- flash highlighted area on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
