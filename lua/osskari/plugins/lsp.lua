@@ -31,7 +31,7 @@ return {
           vim.lsp.buf.format({ async = true })
           vim.cmd('w')
         end, { desc = "Save current buffer and format file" })
-        vim.keymap.set("n", "<leader>ww", function()
+        vim.keymap.set("n", "<leader>wa", function()
           vim.lsp.buf.format({ async = true })
           vim.cmd('Wall')
         end, { desc = "Save all open buffers and format" })

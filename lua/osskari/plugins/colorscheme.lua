@@ -1,7 +1,19 @@
 return {
-  "olimorris/onedarkpro.nvim",
+  "rebelot/kanagawa.nvim",
   priority = 1000,
   config = function()
-    vim.cmd("colorscheme onedark")
+    require('kanagawa').setup({
+      colors = {
+        theme = {
+          wave = {
+            ui = {
+              bg_visual = "#2D4F67"
+            }
+          }
+        }
+      }
+    })
+
+    vim.cmd("colorscheme kanagawa")
   end,
 }
