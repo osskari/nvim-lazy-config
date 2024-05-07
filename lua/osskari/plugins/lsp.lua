@@ -16,6 +16,7 @@ return {
       callback = function(event)
         -- buffer local keybinds
         vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, { desc = "Hover", buffer = event.buf })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Definition", buffer = event.buf })
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Definition", buffer = event.buf })
         vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { desc = "Declaration", buffer = event.buf })
         vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Implementation", buffer = event.buf })
