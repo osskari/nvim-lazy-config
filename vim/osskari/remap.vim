@@ -6,3 +6,6 @@ nnoremap <C-l> <C-w>l
 
 " Save current buffer
 nnoremap <leader>ww :w<CR>
+
+" Move cursor to newline below
+inoremap <C-Enter> <Esc>o
