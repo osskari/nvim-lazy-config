@@ -2,17 +2,19 @@
 
 My vim config mainly designed to be used with neovim, with vimscript compatability at the top layer for use in tools such as ideavim.
 
-# Usage
-The config needs to be included in different ways depending on the environment.
+# Installation
+
+1. Clone the repository into your config directory (commonly `~/.config`).
+    - `git clone https://github.com/osskari/nvim-lazy-config.git`
+2. If you already have a neovim configuration set up that you don't want to lose, rename that directory to something else (ex. `nvim-old`).
+3. Rename the cloned directory to `nvim`.
+3. Delete `.git` and `.gitignore`.
 
 ## NeoVim
 
-1. Clone the repository into your config directory (commonly `~/.config`).
-2. Rename the directory to `nvim`.
-3. Delete `.git` and `.gitignore`.
+Just open up neovim and start having fun :)
 
 ## Jetbrains
 
-1. Follow all 3 steps of the NeoVim section.
-2. Source 'vim/idea-init.vim' in '.ideavimrc'.
-<br>Probably looks something like this `source ~/.config/nvim/vim/idea-init.vim`.
+ Source 'vim/idea-init.vim' in '.ideavimrc'.
+<br>`source ~/.config/nvim/vim/idea-init.vim`.
