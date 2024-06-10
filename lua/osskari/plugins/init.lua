@@ -2,4 +2,9 @@
 return {
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",
+  {
+    "ellisonleao/glow.nvim",
+    config = true,
+    cmd = "Glow"
+  },
 }
