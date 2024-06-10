@@ -44,6 +44,7 @@ return {
       end,
     })
 
+    -- Mason
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local default_setup = function(server)
@@ -60,7 +61,9 @@ return {
       },
     })
 
+    --  Completion
     local cmp = require('cmp')
+    local luasnip = require('luasnip')
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
@@ -70,8 +73,20 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping(function()
+          if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            cmp.mapping.select_next_item(cmp_select)
+          end
+        end),
+        ["<C-p>"] = cmp.mapping(function()
+          if luasnip.expand_or_locally_jumpable(-1) then
+            luasnip.expand_or_jump(-1)
+          else
+            cmp.mapping.select_prev_item(cmp_select)
+          end
+        end),
       }),
       snippet = {
         expand = function(args)
