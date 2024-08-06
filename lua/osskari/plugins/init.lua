@@ -7,4 +7,5 @@ return {
     config = true,
     cmd = "Glow"
   },
+  "tpope/vim-dotenv"
 }
