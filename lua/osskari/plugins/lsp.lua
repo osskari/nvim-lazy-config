@@ -30,11 +30,11 @@ return {
         -- Format and save
         vim.keymap.set("n", "<leader>ww", function()
           vim.lsp.buf.format({ async = true })
-          vim.cmd('w')
+          vim.api.nvim_command('w')
         end, { desc = "Save current buffer and format file" })
         vim.keymap.set("n", "<leader>wa", function()
           vim.lsp.buf.format({ async = true })
-          vim.cmd('Wall')
+          vim.api.nvim_command('wa')
         end, { desc = "Save all open buffers and format" })
 
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action", buffer = event.buf })
