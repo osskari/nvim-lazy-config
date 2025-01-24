@@ -1,0 +1,38 @@
+# Ignore compiled files and swap files
+*.swp
+*.swo
+*.sw?
+
+# Ignore backup files
+*.bak
+*.tmp
+*.temp
+*.old
+*.orig
+
+# Ignore session files
+Session.vim
+Session.vim.*
+
+# Ignore undo files
+*.un~
+*.undo
+
+# Ignore cache directories
+.cache/
+.undodir/
+view/
+
+# Ignore lazy.nvim package manager cache
+lazy-lock.json
+
+# Ignore custom logs or debug files
+logs/
+debug.log
+
+# Ignore Lua module cache (if applicable)
+*.luac
+
+# Ignore specific OS-related files
+.DS_Store
+Thumbs.db
