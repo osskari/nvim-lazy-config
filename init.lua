@@ -1,4 +1,5 @@
-require("config.options")
+-- require("config.options")
+vim.cmd('source' .. vim.fn.stdpath('config') .. '/vim/osskari/options.vim')
 require("config.autocmds")
 require("config.keymap")
 require("config.lazy")

@@ -4,7 +4,7 @@ let mapleader=' '
 let g:maplocalleader=' '
 let maplocalleader=' '
 
-let g:autoformat = true
+let g:autoformat=1
 
 " Numbers
 set nu
@@ -14,58 +14,86 @@ set cursorline
 set colorcolumn=80
 
 " Clipboard
-set clipboard=unnamedplus
+if has('mac')
+  set clipboard+=unnamedplus 
+  let g:clipboard = {
+        \  'name': 'macOS-clipboard',
+        \  'copy': {
+        \    '+': 'pbcopy', 
+        \    '*': 'pbcopy',
+        \  },
+        \  'paste': {
+        \    '+': 'pbpaste', 
+        \    '*': 'pbpaste',
+        \  },
+        \  'cache_enabled': 1,
+        \ }
+elseif has('wsl')
+  set clipboard+=unnamedplus 
+  let g:clipboard = {
+        \  'name': 'WSL-clipboard',
+        \  'copy': {
+        \    '+': 'wcopy', 
+        \    '*': 'wcopy',
+        \  },
+        \  'paste': {
+        \    '+': 'wpaste', 
+        \    '*': 'wpaste',
+        \  },
+        \  'cache_enabled': 1,
+        \ }
+endif
 
 set completeopt=menu,menuone,noselect
-set conceallevel = 2
-set cursorline=true
-set expandtab=true
+set conceallevel=2
+set cursorline
+set expandtab
 
 set fillchars=foldopen:,foldclose:,fold:\ ,foldsep:\ ,diff:╱,eob:\ 
 
 set foldlevel=99
 
 set grepformat=%f:%l:%c:%m
-set grepprg=rg --vimgrep
-set ignorecase=true
+set grepprg=rg\ --vimgrep
+set ignorecase
 set inccommand=nosplit
 
 set jumpoptions=view
 set laststatus=3
-set linebreak=true
-set number=true
+set linebreak
+set number
 
 set pumblend=10
 set pumheight=10
-set relativenumber=true
+set relativenumber
 
 set scrolloff=10
 set sidescrolloff=8
 
-set shiftround=true
+set shiftround
 set shiftwidth=2
 
 set signcolumn=yes
-set smartcase=true
-set smartindent=true
+set smartcase
+set smartindent
 
-set splitbelow=true
+set splitbelow
 set splitkeep=screen
-set splitright=true
+set splitright
 set tabstop=2
-set termguicolors=true
+set termguicolors
 
-set undofile=true
+set undofile
 set undolevels=1000
 set wildmode=longest:full,full
 set winminwidth=5
-set wrap=false
+set nowrap
 
-set smoothscroll=true
+set smoothscroll
 
-" vim.g.loaded_perl_provider = 0
-" vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
-" vim.g.loaded_ruby_provider = 0
-"
-" vim.g.markdown_recommended_style = 0
-"
+let g:loaded_perl_provider=0
+let g:python3_host_prog='/opt/homebrew/bin/python3'
+let g:loaded_ruby_provider=0
+
+let g:markdown_recommended_style=0
+
