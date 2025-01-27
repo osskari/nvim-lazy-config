@@ -50,8 +50,9 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- Dynamic colorcolumn
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cs" },                 -- Add filetypes here
+  group = augroup("big_colorcolumn"),
+  pattern = { "cs" },
   callback = function()
-    vim.opt_local.colorcolumn = "120" -- Adjust column for specific filetypes
+    vim.opt_local.colorcolumn = "120"
   end,
 })
