@@ -46,3 +46,12 @@ nnoremap ]q :cnext<cr>
 " Split window
 nnoremap <leader>- <C-W>s
 nnoremap <leader>\| <C-W>v
+
+" Create and delete tabs
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
+
+" Switch tabs
+nnoremap [t :tabprev<CR>
+nnoremap ]t :tabnext<CR>
+
