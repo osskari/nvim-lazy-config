@@ -1,4 +1,4 @@
 " Source this in .ideavimrc
-source ~/.config/nvim/vim/osskari/vim-base.vim
-source ~/.config/nvim/vim/osskari/remap.vim
-source ~/.config/nvim/vim/osskari/idea-actions.vim
+source ~/.config/nvim-new-old/vim/osskari/vim-base.vim
+source ~/.config/nvim-new-old/vim/osskari/remap.vim
+source ~/.config/nvim-new-old/vim/osskari/idea-actions.vim

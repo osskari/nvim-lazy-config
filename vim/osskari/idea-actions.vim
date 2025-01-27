@@ -20,6 +20,8 @@ map <leader>cr <Action>(RenameElement)
 map <leader>cf <Action>(ReformatCode)
 
 " File tree
-map <leader>ee <Action>(ActivateProjectToolWindow)
+" map <leader>ee <Action>(ActivateProjectToolWindow)
 
+map <leader>e <Action>(ShowErrorDescription)
 
+map gi <Action>(ReSharperGotoImplementation)
