@@ -12,7 +12,8 @@ return {
         "lua",
         "c_sharp",
         "javascript",
-        "typescript"
+        "typescript",
+        "vim"
       },
       sync_install = false,
       ignore_install = {},
