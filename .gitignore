@@ -36,3 +36,5 @@ debug.log
 # Ignore specific OS-related files
 .DS_Store
 Thumbs.db
+
+.luarc.json

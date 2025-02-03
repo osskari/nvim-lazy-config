@@ -22,9 +22,14 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      require("config.lsp.lua").setup(lspconfig, capabilities)
-      require("config.lsp.csharp").setup(lspconfig, capabilities)
-      require("config.lsp.js").setup(lspconfig, capabilities)
+      require('helpers').setup_lsp_many(
+        {
+          'lua',
+          'csharp',
+          'js'
+        },
+        lspconfig,
+        capabilities)
 
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP actions",
@@ -41,16 +46,6 @@ return {
           vim.keymap.set({ "n", "x" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end,
             { desc = "Format", buffer = event.buf })
 
-          -- Format and save
-          vim.keymap.set("n", "<leader>ww", function()
-            vim.lsp.buf.format({ async = true })
-            vim.api.nvim_command('w')
-          end, { desc = "Save current buffer and format file" })
-          vim.keymap.set("n", "<leader>wa", function()
-            vim.lsp.buf.format({ async = true })
-            vim.api.nvim_command('wa')
-          end, { desc = "Save all open buffers and format" })
-
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action", buffer = event.buf })
 
           vim.keymap.set("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>",
@@ -58,31 +53,5 @@ return {
         end,
       })
     end,
-  },
-  -- {
-  --   'nanotee/sqls.nvim',
-  --   depencies = {
-  --     "neovim/nvim-lspconfig",
-  --     'saghen/blink.cmp',
-  --
-  --   },
-  --   config = function ()
-  --     local lspconfig = require("lspconfig")
-  --     local capabilities = require('blink.cmp').get_lsp_capabilities()
-  --
-  --     lspconfig.sqls.setup({
-  --       capabilities = capabilities,
-  --       settings = {
-  --         sqls = {
-  --           connections = {
-  --             {
-  --               driver = 'postgresql',
-  --               dataSourceName = 'host=127.0.0.1 port=5432 user=postgres password=secret123 dbname=vedur sslmode=disable'
-  --             },
-  --           }
-  --         }
-  --       }
-  --     })
-  --   end
-  -- }
+  }
 }
