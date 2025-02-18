@@ -26,7 +26,8 @@ return {
         {
           'lua',
           'csharp',
-          'js'
+          'js',
+          'python'
         },
         lspconfig,
         capabilities)
