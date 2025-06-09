@@ -13,7 +13,8 @@ return {
         "c_sharp",
         "javascript",
         "typescript",
-        "vim"
+        "vim",
+        "rust"
       },
       sync_install = false,
       ignore_install = {},
