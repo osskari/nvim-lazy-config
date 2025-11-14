@@ -91,9 +91,3 @@ set nowrap
 
 set smoothscroll
 
-let g:loaded_perl_provider=0
-let g:python3_host_prog='/opt/homebrew/bin/python3'
-let g:loaded_ruby_provider=0
-
-let g:markdown_recommended_style=0
-

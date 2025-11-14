@@ -22,15 +22,6 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      require('helpers').setup_lsp_many(
-        {
-          'lua',
-          'csharp',
-          'js',
-          'python'
-        },
-        lspconfig,
-        capabilities)
 
       vim.api.nvim_create_autocmd("LspAttach", {
         desc = "LSP actions",
