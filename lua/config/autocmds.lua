@@ -1,3 +1,8 @@
+-- ================================================================================================
+-- TITLE : auto-commands
+-- ABOUT : automatically run code on defined events (e.g. save, yank)
+-- ================================================================================================
+
 local function augroup(name)
   return vim.api.nvim_create_augroup("osskari_" .. name, { clear = true })
 end
@@ -12,12 +17,28 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
 })
 
--- Highlight on yank
+-- Restore last cursor position when reopening a file
+vim.api.nvim_create_autocmd("BufReadPost", {
+	group = augroup("LastCursorGroup"),
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		local lcount = vim.api.nvim_buf_line_count(0)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
+	end,
+})
+
+-- Highlight the yanked text for 200ms
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function()
-    (vim.hl or vim.highlight).on_yank()
-  end,
+	group = augroup("HighlightYank"),
+	pattern = "*",
+	callback = function()
+		vim.hl.on_yank({
+			higroup = "IncSearch",
+			timeout = 200,
+		})
+	end,
 })
 
 -- resize splits if window resized
@@ -30,24 +51,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
--- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
-  group = augroup("last_loc"),
-  callback = function(event)
-    local exclude = { "gitcommit" }
-    local buf = event.buf
-    if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
-      return
-    end
-    vim.b[buf].lazyvim_last_loc = true
-    local mark = vim.api.nvim_buf_get_mark(buf, '"')
-    local lcount = vim.api.nvim_buf_line_count(buf)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-})
-
 -- Dynamic colorcolumn
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("big_colorcolumn"),
@@ -56,3 +59,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.colorcolumn = "120"
   end,
 })
+
+-- local on_attach = require("utils.lsp").on_attach
+-- -- on attach function shortcuts
+-- local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	group = lsp_on_attach_group,
+-- 	callback = on_attach,
+-- })
