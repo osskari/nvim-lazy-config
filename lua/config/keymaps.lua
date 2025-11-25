@@ -47,4 +47,4 @@ vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle Fil
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { silent = true, desc = "Clear hlsearch" })
 
 -- quick config
-vim.keymap.set("n", "<leader>rc", "<CMD>e ~/.config/nvim/init.lua")
+vim.keymap.set("n", "<leader>rc", "<CMD>e ~/.config/nvim/init.lua<CR>")
