@@ -26,12 +26,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local require_vim = require('utils.vim').require_vim
-
-require_vim('vim/config/globals.vim')
-require_vim('vim/config/keymaps.vim')
-require("config.options")
-require("config.autocmds")
+require('utils.setup').setup()
 
 local plugins_dir = "plugins"
 

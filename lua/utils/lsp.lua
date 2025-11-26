@@ -1,5 +1,13 @@
 local M = {}
 
+M.setup_lsp = function(configured_servers, capabilities)
+  for _, x in ipairs(configured_servers) do
+    require("servers." .. x).config(capabilities)
+  end
+
+  vim.lsp.enable(configured_servers)
+end
+
 M.on_attach = function(client, bufnr)
   local keymap = vim.keymap.set
 
@@ -9,20 +17,28 @@ M.on_attach = function(client, bufnr)
     buffer = bufnr,
   }
 
-  keymap("n", "K", vim.lsp.buf.hover, opts) -- hover docs
-  keymap("n", "gd", vim.lsp.buf.definition, opts) -- goto definition
-  keymap("n", "gD", vim.lsp.buf.declaration, opts) -- goto declaration
-  keymap("n", "gi", vim.lsp.buf.implementation, opts) -- goto implementation
+  keymap("n", "K", vim.lsp.buf.hover, opts)                   -- hover docs
+  keymap("n", "gd", vim.lsp.buf.definition, opts)             -- goto definition
+  keymap("n", "gD", vim.lsp.buf.declaration, opts)            -- goto declaration
+  keymap("n", "gi", vim.lsp.buf.implementation, opts)         -- goto implementation
   keymap("n", "<leader>go", vim.lsp.buf.type_definition, opts) -- go to type definition
-  keymap("n", "<leader>gr", vim.lsp.buf.references, opts) -- go to references
+  keymap("n", "<leader>gr", vim.lsp.buf.references, opts)     -- go to references
   keymap("n", "<leader>gs", vim.lsp.buf.signature_help, opts) -- signature help
-  keymap("n", "<leader>cr", vim.lsp.buf.rename, opts) -- rename symbol
-  keymap({ "n", "x" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts) -- format buffer
+  keymap("n", "<leader>cr", vim.lsp.buf.rename, opts)         -- rename symbol
+  keymap({ "n", "x" }, "<leader>cf", function()
+    vim.lsp.buf.format({ async = true })
+  end, opts)                                              -- format buffer
   keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
-  keymap("n", "<leader>D", function() vim.diagnostic.openfloat({scope = 'line'}) end, opts) -- line diagnostic
+  keymap("n", "<leader>D", function()
+    vim.diagnostic.openfloat({ scope = "line" })
+  end, opts) -- line diagnostic
   -- keymap("n", "<leader>d", vim.diagnostic.openfloat, opts) -- cursor diagnostic
-  keymap("n", "[d", function() vim.diagnostic.jump({count=-1, float=true}) end, opts) -- previous diagnostic
-  keymap("n", "]d", function() vim.diagnostic.jump({count=1, float=true}) end, opts) -- next diagnostic
+  keymap("n", "[d", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end, opts) -- previous diagnostic
+  keymap("n", "]d", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end, opts) -- next diagnostic
 
   -- fzf binds
   keymap("n", "<leader>fd", "<CMD>FzfLua lsp_finder<CR>", opts)
@@ -32,4 +48,4 @@ M.on_attach = function(client, bufnr)
   keymap("n", "<leader>fi", "<CMD>FzfLua lsp_implementations<CR>", opts)
 end
 
-return M;
+return M

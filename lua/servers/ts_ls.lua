@@ -1,4 +1,6 @@
-return function(capabilities)
+local M = {}
+
+M.config = function(capabilities)
   vim.lsp.config("ts_ls", {
     capabilities = capabilities,
     filetypes = {
@@ -15,3 +17,5 @@ return function(capabilities)
     },
   })
 end
+
+return M

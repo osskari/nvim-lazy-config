@@ -1,4 +1,6 @@
-return function(capabilities)
+local M = {}
+
+M.config = function(capabilities)
   vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     filetypes = { "lua" },
@@ -17,3 +19,5 @@ return function(capabilities)
     },
   })
 end
+
+return M
