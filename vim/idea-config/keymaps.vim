@@ -48,3 +48,5 @@ map <leader>eh <Action>(ShowErrorDescription)
 map <leader>en <Action>(GotoNextError)
 map <leader>ep <Action>(GotoPreviousError)
 map <leader>xx <Action>(ActivateProblemsViewToolWindow)
+
+map <leader>nn <Action>(NewElement)
