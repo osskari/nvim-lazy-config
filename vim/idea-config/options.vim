@@ -1,5 +1,6 @@
 " Set opts
 set incsearch
+set ignorecase
 set smartsearch
 set colorcolumn=120
 set cursorline
