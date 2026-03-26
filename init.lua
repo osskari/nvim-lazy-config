@@ -1,1 +1,5 @@
-require("config.lazy")
+require("opts")
+require("keymap")
+require("colorscheme")
+require("autocmd")
+require("lz.n").load("plugins")

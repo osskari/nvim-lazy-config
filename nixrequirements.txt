@@ -1,0 +1,10 @@
+plugins = with pkgs.vimPackages; [
+  # lazy loader
+  lz-n
+
+  # colorscheme
+  cappuccin-nvim
+
+  # plugins
+  snacks-nvim
+];

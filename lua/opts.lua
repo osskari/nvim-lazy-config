@@ -1,7 +1,6 @@
--- ================================================================================================
--- TITLE : NeoVim options
--- ABOUT : basic settings native to neovim
--- ================================================================================================
+-- Leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Basic Settings
 vim.opt.number = true -- Line numbers
