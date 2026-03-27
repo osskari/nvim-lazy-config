@@ -50,3 +50,5 @@ map <leader>ep <Action>(GotoPreviousError)
 map <leader>xx <Action>(ActivateProblemsViewToolWindow)
 
 map <leader>nn <Action>(NewElement)
+
+map gi <Action>(ReSharperGotoImplementation)
