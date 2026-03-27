@@ -41,6 +41,9 @@ return {
     -- gitbrowse
     { "<leader>gb", function() Snacks.gtibrowse.open() end, desc = "Browse remote file" },
 
+    -- lazygit
+    { "<leader>lg", function() Snacks.lazygit.open() end, desc = "Open lazygit" },
+
     -- picker
     { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },
     { "<leader>fo", function() Snacks.picker.recent() end, desc = "Find Recent Files" },
