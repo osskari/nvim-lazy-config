@@ -4,6 +4,8 @@ return {
   lazy = false,
   after = function()
     require("snacks").setup({
+      bigfile = { enabled = true },
+      explorer = { enabled = true },
       input = { enabled = true },
       picker = {
         enabled = true,
@@ -26,14 +28,25 @@ return {
           history_bonus = true,
         },
       },
+      quickfile = { enabled = true },
     })
   end,
   keys = {
-    { "<leader>ff", function() Snacks.picker.smart() end,                        desc = "Find Files" },
-    { "<leader>fo", function() Snacks.picker.recent() end,                       desc = "Find Recent Files" },
+    -- bufdelete
+    { "<leader>bd", function() Snacks.bufdelete.delete() end, desc = "Close current buffer" },
+
+    -- explorer
+    { "<leader>e", function() Snacks.explorer.open() end, desc = "Toggle file explorer" },
+
+    -- gitbrowse
+    { "<leader>gb", function() Snacks.gtibrowse.open() end, desc = "Browse remote file" },
+
+    -- picker
+    { "<leader>ff", function() Snacks.picker.smart() end, desc = "Find Files" },
+    { "<leader>fo", function() Snacks.picker.recent() end, desc = "Find Recent Files" },
     { "<leader>fG", function() Snacks.picker.grep({ ft = vim.bo.filetype }) end, desc = "grep" },
-    { "<leader>fg", function() Snacks.picker.grep() end,                         desc = "grep" },
-    { "gr",         function() Snacks.picker.lsp_references() end,               nowait = true,             desc = "References" },
-    { "gd",         function() Snacks.picker.lsp_definitions() end,              desc = "Goto Definition" },
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "grep" },
+    { "gr",         function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
   }
 }
