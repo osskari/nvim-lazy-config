@@ -2,8 +2,11 @@ require("opts")
 require("keymap")
 require("autocmd")
 
--- this should not be run in nix
-require("paqman")
+local loader = require("loader")
+local packs, loads = loader.load_packages("/lua/plugins/")
+
+-- skip this in nix
+require("paqman").bootstrap(packs)
 
 require("colorscheme")
-require("lz.n").load("plugins")
+require("lz.n").load(loads)

@@ -1,3 +1,5 @@
+local M = {}
+
 local function clone_paq()
   local path = vim.fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
   local is_installed = vim.fn.empty(vim.fn.glob(path)) == 0
@@ -7,7 +9,7 @@ local function clone_paq()
   end
 end
 
-local function bootstrap_paq(packages)
+M.bootstrap = function(packages)
   local first_install = clone_paq()
   vim.cmd.packadd("paq-nvim")
   local paq = require("paq")
@@ -20,29 +22,4 @@ local function bootstrap_paq(packages)
   paq.install()
 end
 
-
-bootstrap_paq {
-  "savq/paq-nvim", 
-
-  -- lazy loader
-  {
-    "lumen-oss/lz.n",
-    build = function()
-      require("lz.n").load("plugins")
-    end,
-  },
-
-  -- colorscheme
-  { 
-    "catppuccin/nvim", 
-    as = "catppuccin",
-    build = function()
-      vim.cmd.colorscheme "catppuccin-nvim"
-    end,
-  },
-
-  -- plugins
-  { "nvim-treesitter/nvim-treesitter", opt = false },
-  { "folke/snacks.nvim", opt = true },
-}
-
+return M
