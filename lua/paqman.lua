@@ -42,6 +42,7 @@ bootstrap_paq {
   },
 
   -- plugins
+  { "nvim-treesitter/nvim-treesitter", opt = false },
   { "folke/snacks.nvim", opt = true },
 }
 
