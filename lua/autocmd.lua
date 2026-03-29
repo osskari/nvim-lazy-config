@@ -19,26 +19,26 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 
 -- Restore last cursor position when reopening a file
 vim.api.nvim_create_autocmd("BufReadPost", {
-	group = augroup("LastCursorGroup"),
-	callback = function()
-		local mark = vim.api.nvim_buf_get_mark(0, '"')
-		local lcount = vim.api.nvim_buf_line_count(0)
-		if mark[1] > 0 and mark[1] <= lcount then
-			pcall(vim.api.nvim_win_set_cursor, 0, mark)
-		end
-	end,
+  group = augroup("LastCursorGroup"),
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
 })
 
 -- Highlight the yanked text for 200ms
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = augroup("HighlightYank"),
-	pattern = "*",
-	callback = function()
-		vim.hl.on_yank({
-			higroup = "IncSearch",
-			timeout = 200,
-		})
-	end,
+  group = augroup("HighlightYank"),
+  pattern = "*",
+  callback = function()
+    vim.hl.on_yank({
+      higroup = "IncSearch",
+      timeout = 200,
+    })
+  end,
 })
 
 -- resize splits if window resized
@@ -60,12 +60,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-
 -- on attach function shortcuts
--- local on_attach = require("utiautocommandsls.lsp").on_attach
---
--- local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
--- vim.api.nvim_create_autocmd("LspAttach", {
--- 	group = lsp_on_attach_group,
--- 	callback = on_attach,
--- })
+local on_attach = require("utils").lsp_on_attach
+
+local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = lsp_on_attach_group,
+  callback = on_attach,
+})

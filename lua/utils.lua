@@ -9,11 +9,11 @@ local function getConfig()
 
   local expanded_path = vim.fn.expand(vim.fn.stdpath("config") .. "/lua/plugins")
 
-  local pattern = expanded_path:match('/$') and expanded_path .. '*.lua' or expanded_path .. '/*.lua'
+  local pattern = expanded_path:match("/$") and expanded_path .. "*.lua" or expanded_path .. "/*.lua"
   local lua_files = vim.fn.glob(pattern, true, true)
 
-  if type(lua_files) == 'string' then
-    if lua_files ~= '' then
+  if type(lua_files) == "string" then
+    if lua_files ~= "" then
       lua_files = { lua_files }
     else
       lua_files = {}
@@ -70,12 +70,20 @@ M.lsp_on_attach = function(client, bufnr)
   keymap("n", "<leader>gr", vim.lsp.buf.references, opts)     -- go to references
   keymap("n", "<leader>gs", vim.lsp.buf.signature_help, opts) -- signature help
   keymap("n", "<leader>cr", vim.lsp.buf.rename, opts)         -- rename symbol
-  keymap({ "n", "x" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts)                                              -- format buffer
+  keymap({ "n", "x" }, "<leader>cf", function()
+    vim.lsp.buf.format({ async = true })
+  end, opts)                                              -- format buffer
   keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
-  keymap("n", "<leader>D", function() vim.diagnostic.openfloat({ scope = "line" }) end, opts) -- line diagnostic
+  keymap("n", "<leader>D", function()
+    vim.diagnostic.openfloat({ scope = "line" })
+  end, opts) -- line diagnostic
   -- keymap("n", "<leader>d", vim.diagnostic.openfloat, opts) -- cursor diagnostic
-  keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts) -- previous diagnostic
-  keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts) -- next diagnostic
+  keymap("n", "[d", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end, opts) -- previous diagnostic
+  keymap("n", "]d", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end, opts) -- next diagnostic
 
   -- fzf binds
   keymap("n", "<leader>fd", "<CMD>FzfLua lsp_finder<CR>", opts)
@@ -107,7 +115,7 @@ local require_dependencies = function(dependencies)
   local requires = {}
 
   for value, key in pairs(unique_pairs) do
-    requires[value] = require('efmls-configs.' .. key .. 's.' .. value)
+    requires[value] = require("efmls-configs." .. key .. "s." .. value)
   end
 
   return requires

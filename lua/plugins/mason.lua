@@ -4,12 +4,12 @@ end
 
 return {
   pack = {
-    source = "mason-org/mason.nvim"
+    source = "mason-org/mason.nvim",
   },
   load = {
     "mason.nvim",
     after = function()
       require("mason").setup()
-    end
-  }
+    end,
+  },
 }

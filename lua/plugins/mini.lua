@@ -18,6 +18,6 @@ return {
       require("mini.icons").setup({})
       -- trailspace
       require("mini.trailspace").setup({})
-    end
-  }
+    end,
+  },
 }

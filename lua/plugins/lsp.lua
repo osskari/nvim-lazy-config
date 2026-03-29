@@ -1,7 +1,7 @@
 local utils = require("utils")
 
 local depends = {
-  "creativenull/efmls-configs-nvim"
+  "creativenull/efmls-configs-nvim",
 }
 
 if not utils.isNix() then
@@ -26,8 +26,8 @@ return {
             [vim.diagnostic.severity.WARN] = " ",
             [vim.diagnostic.severity.HINT] = "",
             [vim.diagnostic.severity.INFO] = "",
-          }
-        }
+          },
+        },
       })
 
       -- LUA
@@ -43,69 +43,69 @@ return {
               library = {
                 vim.fn.expand("$VIMRUNTIME/lua"),
                 vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua",
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       }
       vim.lsp.enable("lua_ls")
 
       -- EFM
       local dependencies = {
         css = {
-          formatter = 'prettier',
+          formatter = "prettier",
         },
         docker = {
-          formatter = 'prettier',
+          formatter = "prettier",
         },
         go = {
-          linter = 'go_revive',
-          formatter = 'gofumpt',
+          linter = "go_revive",
+          formatter = "gofumpt",
         },
         html = {
-          formatter = 'prettier',
+          formatter = "prettier",
         },
         javascript = {
-          linter = 'eslint_d',
-          formatter = 'prettier',
+          linter = "eslint_d",
+          formatter = "prettier",
         },
         javascriptreact = {
-          linter = 'eslint_d',
-          formatter = 'prettier',
+          linter = "eslint_d",
+          formatter = "prettier",
         },
         json = {
-          linter = 'eslint_d',
-          formatter = 'fixjson',
+          linter = "eslint_d",
+          formatter = "fixjson",
         },
         jsonc = {
-          linter = 'eslint_d',
-          formatter = 'fixjson',
+          linter = "eslint_d",
+          formatter = "fixjson",
         },
         lua = {
-          linter = 'luacheck',
-          formatter = 'stylua',
+          linter = "luacheck",
+          formatter = "stylua",
         },
         markdown = {
-          formatter = 'prettier',
+          formatter = "prettier",
         },
         nix = {
-          formatter = 'alejandra',
+          formatter = "alejandra",
         },
         python = {
-          linter = 'flake8',
-          formatter = 'black',
+          linter = "flake8",
+          formatter = "black",
         },
         sh = {
-          linter = 'shellcheck',
-          formatter = 'shfmt',
+          linter = "shellcheck",
+          formatter = "shfmt",
         },
         typescript = {
-          linter = 'eslint_d',
-          formatter = 'prettier',
+          linter = "eslint_d",
+          formatter = "prettier",
         },
         typescriptreact = {
-          linter = 'eslint_d',
-          formatter = 'prettier',
+          linter = "eslint_d",
+          formatter = "prettier",
         },
       }
 
@@ -125,6 +125,6 @@ return {
         },
       }
       vim.lsp.enable("efm")
-    end
+    end,
   },
 }

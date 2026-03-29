@@ -17,11 +17,11 @@ return {
 
       cmp.setup({
 
-        -- snippet = {
-        --   expand = function(args)
-        --     -- require('luasnip').lsp_expand(args.body)
-        --   end
-        -- },
+        snippet = {
+          expand = function(args)
+            -- require('luasnip').lsp_expand(args.body)
+          end
+        },
 
         window = {
           completion = cmp.config.window.bordered(),
@@ -47,6 +47,6 @@ return {
           { name = "nvim_signature_help" },
         },
       })
-    end
-  }
+    end,
+  },
 }

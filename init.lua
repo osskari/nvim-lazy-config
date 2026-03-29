@@ -10,7 +10,7 @@ if not utils.isNix() then
 
   local deps = utils.loadDependencies()
 
-  for _,v in ipairs(deps) do
+  for _, v in ipairs(deps) do
     MiniDeps.add(v)
   end
 end
