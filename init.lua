@@ -4,6 +4,7 @@ require("autocmd")
 
 local utils = require("utils")
 
+-- load dependencies when  not on nix
 if not utils.isNix() then
   require("init_package_manager").setup()
 
@@ -13,8 +14,6 @@ if not utils.isNix() then
     MiniDeps.add(v)
   end
 end
-
--- lsp
 
 -- lazy load
 local configs = utils.loadConfig()
