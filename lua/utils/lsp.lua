@@ -1,6 +1,6 @@
 local M = {}
 
-M.lsp_on_attach = function(client, bufnr)
+M.lsp_on_attach = function(_, bufnr)
   local keymap = vim.keymap.set
 
   local opts = {

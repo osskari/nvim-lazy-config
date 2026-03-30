@@ -14,7 +14,7 @@ return {
         image = { enabled = true },
         lazygit = { enabled = true },
         picker = {
-          enabled = true,
+          enabled = false,
           win = {
             input = {
               keys = {
