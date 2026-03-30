@@ -2,6 +2,7 @@ return {
   pack = { source = "folke/snacks.nvim" },
   load = {
     "snacks.nvim",
+    lazy = false,
     after = function()
       require("snacks").setup({
         bigfile = { enabled = true },
@@ -66,42 +67,6 @@ return {
           Snacks.lazygit.open()
         end,
         desc = "Open lazygit",
-      },
-      -- picker
-      {
-        "<leader>ff",
-        function()
-          Snacks.picker.smart()
-        end,
-        desc = "Find files",
-      },
-      {
-        "<leader>fG",
-        function()
-          Snacks.picker.grep({ ft = vim.bo.filetype })
-        end,
-        desc = "grep",
-      },
-      {
-        "<leader>fg",
-        function()
-          Snacks.picker.grep()
-        end,
-        desc = "grep",
-      },
-      {
-        "gr",
-        function()
-          Snacks.picker.lsp_references()
-        end,
-        desc = "Go to references",
-      },
-      {
-        "gd",
-        function()
-          Snacks.picker.lsp_definitions()
-        end,
-        desc = "Go to definition",
       },
     },
   },
