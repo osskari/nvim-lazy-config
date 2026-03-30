@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- on attach function shortcuts
-local on_attach = require("utils").lsp_on_attach
+local on_attach = require("utils.lsp").lsp_on_attach
 
 local lsp_on_attach_group = vim.api.nvim_create_augroup("LspMappings", {})
 vim.api.nvim_create_autocmd("LspAttach", {

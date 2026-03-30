@@ -1,10 +1,8 @@
-local utils = require("utils")
-
 local depends = {
   "creativenull/efmls-configs-nvim",
 }
 
-if not utils.isNix() then
+if not require("utils.nix").isNix() then
   table.insert(depends, "mason-org/mason.nvim")
 end
 
@@ -30,101 +28,12 @@ return {
         },
       })
 
-      -- LUA
-      vim.lsp.config["lua_ls"] = {
-        capabilities = capabilities,
-        filetypes = { "lua" },
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = {
-                vim.fn.expand("$VIMRUNTIME/lua"),
-                vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua",
-              },
-            },
-          },
-        },
-      }
-      vim.lsp.enable("lua_ls")
+      local lsp_utils = require("utils.lsp")
+      local servers = lsp_utils.load_servers()
 
-      -- EFM
-      local dependencies = {
-        css = {
-          formatter = "prettier",
-        },
-        docker = {
-          formatter = "prettier",
-        },
-        go = {
-          linter = "go_revive",
-          formatter = "gofumpt",
-        },
-        html = {
-          formatter = "prettier",
-        },
-        javascript = {
-          linter = "eslint_d",
-          formatter = "prettier",
-        },
-        javascriptreact = {
-          linter = "eslint_d",
-          formatter = "prettier",
-        },
-        json = {
-          linter = "eslint_d",
-          formatter = "fixjson",
-        },
-        jsonc = {
-          linter = "eslint_d",
-          formatter = "fixjson",
-        },
-        lua = {
-          linter = "luacheck",
-          formatter = "stylua",
-        },
-        markdown = {
-          formatter = "prettier",
-        },
-        nix = {
-          formatter = "alejandra",
-        },
-        python = {
-          linter = "flake8",
-          formatter = "black",
-        },
-        sh = {
-          linter = "shellcheck",
-          formatter = "shfmt",
-        },
-        typescript = {
-          linter = "eslint_d",
-          formatter = "prettier",
-        },
-        typescriptreact = {
-          linter = "eslint_d",
-          formatter = "prettier",
-        },
-      }
-
-      vim.lsp.config["efm"] = {
-        capabilities = capabilities,
-        filetypes = utils.efm_file_types(dependencies),
-        init_options = {
-          documentFormatting = true,
-          documentRangeFormatting = true,
-          hover = true,
-          documentSymbol = true,
-          codeAction = true,
-          completion = true,
-        },
-        settings = {
-          languages = utils.efm_configure_languages(dependencies),
-        },
-      }
-      vim.lsp.enable("efm")
+      for _, value in ipairs(servers) do
+        lsp_utils.configure(value.name, capabilities, value.config)
+      end
     end,
   },
 }

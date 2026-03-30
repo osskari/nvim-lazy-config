@@ -2,10 +2,10 @@ require("opts")
 require("keymap")
 require("autocmd")
 
-local utils = require("utils")
+local utils = require("utils.startup")
 
 -- load dependencies when  not on nix
-if not utils.isNix() then
+if not require("utils.nix").isNix() then
   require("init_package_manager").setup()
 
   local deps = utils.loadDependencies()

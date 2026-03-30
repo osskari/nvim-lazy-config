@@ -1,58 +1,5 @@
 local M = {}
 
-M.isNix = function()
-  return vim.fn.isdirectory("/nix") == 1
-end
-
-local function getConfig()
-  local modules = {}
-
-  local expanded_path = vim.fn.expand(vim.fn.stdpath("config") .. "/lua/plugins")
-
-  local pattern = expanded_path:match("/$") and expanded_path .. "*.lua" or expanded_path .. "/*.lua"
-  local lua_files = vim.fn.glob(pattern, true, true)
-
-  if type(lua_files) == "string" then
-    if lua_files ~= "" then
-      lua_files = { lua_files }
-    else
-      lua_files = {}
-    end
-  end
-
-  for _, filepath in ipairs(lua_files) do
-    local module = dofile(filepath)
-
-    table.insert(modules, module)
-  end
-
-  return modules
-end
-
-M.loadDependencies = function()
-  local packs = {}
-
-  local plugins = getConfig()
-
-  for _, v in ipairs(plugins) do
-    table.insert(packs, v.pack)
-  end
-
-  return packs
-end
-
-M.loadConfig = function()
-  local configs = {}
-
-  local plugins = getConfig()
-
-  for _, v in ipairs(plugins) do
-    table.insert(configs, v.load)
-  end
-
-  return configs
-end
-
 M.lsp_on_attach = function(client, bufnr)
   local keymap = vim.keymap.set
 
@@ -93,48 +40,37 @@ M.lsp_on_attach = function(client, bufnr)
   keymap("n", "<leader>fi", "<CMD>FzfLua lsp_implementations<CR>", opts)
 end
 
-M.efm_file_types = function(dependencies)
-  local types = {}
+M.configure = function(name, capabilities, config)
+  config["capabilities"] = capabilities
 
-  for k, _ in pairs(dependencies) do
-    table.insert(types, k)
-  end
-
-  return types
+  vim.lsp.config[name] = config
+  vim.lsp.enable(name)
 end
 
-local require_dependencies = function(dependencies)
-  local unique_pairs = {}
+M.load_servers = function()
+  local servers = {}
 
-  for _, tools in pairs(dependencies) do
-    for key, value in pairs(tools) do
-      unique_pairs[value] = key
+  local path = vim.fn.expand(vim.fn.stdpath("config") .. "/lua/servers")
+
+  local pattern = path:match("/$") and path .. "*.lua" or path .. "/*.lua"
+  local files = vim.fn.glob(pattern, true, true)
+
+  if type(files) == "string" then
+    if files ~= "" then
+      files = { files }
+    else
+      files = {}
     end
   end
 
-  local requires = {}
 
-  for value, key in pairs(unique_pairs) do
-    requires[value] = require("efmls-configs." .. key .. "s." .. value)
+  for _, filepath in ipairs(files) do
+    local server = dofile(filepath)
+
+    table.insert(servers, server)
   end
 
-  return requires
-end
-
-M.efm_configure_languages = function(dependencies)
-  local config = require_dependencies(dependencies)
-
-  local languages = {}
-
-  for language, configs in pairs(dependencies) do
-    languages[language] = {}
-
-    for _, v in pairs(configs) do
-      table.insert(languages[language], config[v])
-    end
-  end
-
-  return languages
+  return servers
 end
 
 return M

@@ -1,4 +1,4 @@
-if require("utils").isNix() then
+if require("utils.nix").isNix() then
   return {}
 end
 
