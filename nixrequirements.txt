@@ -1,10 +1,89 @@
-plugins = with pkgs.vimPackages; [
+plugins = with pkgs.vimPlugins; [
   # lazy loader
   lz-n
 
   # colorscheme
-  cappuccin-nvim
+  catppuccin-vim
 
   # plugins
+  # cmp
+  nvim-cmp
+  cmp-nvim-lsp
+  cmp-buffer
+  cmp-path
+  cmp-nvim-lsp-signature-help
+  friendly-snippets
+  cmp_luasnip
+  luasnip
+
+  # fzf-lua
+  fzf-lua
+
+  # gitsigns
+  gitsigns-nvim
+
+  # harpoon
+  harpoon2
+
+  # lsp
+  nvim-lspconfig
+  efmls-configs-nvim
+
+  # lualine
+  lualine-nvim
+
+  # mini
+  mini-nvim
+
+  # scrolleof
+  # Aasim-A/scrollEOF.nvim
+
+  # snacks
   snacks-nvim
+
+  # startuptime
+  vim-startuptime
+
+  # treesitter
+  nvim-treesitter
+];
+
+lsp = with pkgs; [
+  # bash
+  bash-language-server
+
+  # csharp
+  csharp-ls
+
+  # efm
+  prettier
+  revive
+  gofumpt
+  eslint_d
+  fixjson
+  luajitPackages.luacheck
+  stylua
+  alejandra
+  python314Packages.flake8
+  black
+  shellcheck
+  shfmt
+
+  # fish
+  fish-lsp
+
+  # go
+  gopls
+
+  # lua
+  luajitPackages.lua-lsp
+
+  # nix
+  nil
+
+  # python
+  pyright
+
+  # typescript
+  typescript-language-server
 ];
