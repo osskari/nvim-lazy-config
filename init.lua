@@ -2,19 +2,20 @@ require("opts")
 require("keymap")
 require("autocmd")
 
-local utils = require("utils.startup")
+require("deps")
 
--- load dependencies when  not on nix
-if not require("utils.nix").isNix() then
-  require("init_package_manager").setup()
+vim.cmd.colorscheme("catppuccin-nvim")
 
-  local deps = utils.loadDependencies()
-
-  for _, v in ipairs(deps) do
-    MiniDeps.add(v)
-  end
-end
-
--- lazy load
-local configs = utils.loadConfig()
-require("lz.n").load(configs)
+require("plugins.cmp")
+require("plugins.fzf-lua")
+require("plugins.gitsigns")
+require("plugins.harpoon")
+require("plugins.mason")
+require("plugins.lualine")
+require("plugins.mini")
+require("plugins.scrollEOF")
+require("plugins.snacks")
+require("plugins.treesitter")
+require("plugins.lsp")
+require("plugins.trouble")
+require("plugins.easy-dotnet")
