@@ -54,3 +54,4 @@ map <leader>nn <Action>(NewElement)
 map gi <Action>(ReSharperGotoImplementation)
 
 map <leader>gt <Action>(ActivateUnitTestsToolWindow)
+map <leader>mt <Action>(MoveEditorToOppositeTabGroup)
