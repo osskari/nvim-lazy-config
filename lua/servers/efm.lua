@@ -56,6 +56,9 @@ local dependencies = {
     linter = "eslint_d",
     formatter = "prettier",
   },
+  yaml = {
+    formatter = "prettier",
+  }
 }
 
 return {
