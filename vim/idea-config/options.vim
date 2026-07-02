@@ -7,3 +7,5 @@ set cursorline
 set number
 set relativenumber
 set clipboard+=unnamedplus
+set VimEverywhere
+set inccommand=nosplit
