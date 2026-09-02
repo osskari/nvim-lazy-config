@@ -44,10 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.format({ async = true })
     end, opts)                                               -- format buffer
     keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
-    keymap("n", "<leader>D", function()
-      vim.diagnostic.openfloat({ scope = "line" })
-    end, opts) -- line diagnostic
-    -- keymap("n", "<leader>d", vim.diagnostic.openfloat, opts) -- cursor diagnostic
+    keymap("n", "Q", vim.diagnostic.open_float, opts) -- cursor diagnostic
     keymap("n", "[d", function()
       vim.diagnostic.jump({ count = -1, float = true })
     end, opts) -- previous diagnostic
