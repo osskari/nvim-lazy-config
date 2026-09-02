@@ -121,6 +121,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "rustaceanvim": {
+      "rev": "f4051fb4662c43a568ce809a37e47c0f4e3d7a31",
+      "src": "https://github.com/mrcjkb/rustaceanvim"
+    },
     "scrollEOF.nvim": {
       "rev": "e462b9a07b8166c3e8011f1dcbc6bf68b67cd8d7",
       "src": "https://github.com/Aasim-A/scrollEOF.nvim"
@@ -144,6 +148,10 @@
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "zig.vim": {
+      "rev": "29f7a9b8a4e33f936b803de0b713683ad687a6c3",
+      "src": "https://codeberg.org/ziglang/zig.vim"
     }
   }
 }

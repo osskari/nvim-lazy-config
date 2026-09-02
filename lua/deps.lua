@@ -77,6 +77,15 @@ local packs = {
   -- easydotnet
   "https://github.com/GustavEikaas/easy-dotnet.nvim",
   "https://github.com/mfussenegger/nvim-dap",
+
+  -- zig
+  "https://codeberg.org/ziglang/zig.vim",
+
+  -- rust
+  {
+    src = "https://github.com/mrcjkb/rustaceanvim",
+    version = vim.version.range('^9')
+  },
 }
 
 vim.pack.add(packs)
