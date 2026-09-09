@@ -123,7 +123,8 @@
     },
     "rustaceanvim": {
       "rev": "f4051fb4662c43a568ce809a37e47c0f4e3d7a31",
-      "src": "https://github.com/mrcjkb/rustaceanvim"
+      "src": "https://github.com/mrcjkb/rustaceanvim",
+      "version": "9.0.0 - 10.0.0"
     },
     "scrollEOF.nvim": {
       "rev": "e462b9a07b8166c3e8011f1dcbc6bf68b67cd8d7",
