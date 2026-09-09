@@ -28,7 +28,6 @@ lzn.load({
       return false
     end,
     after = function()
-      print("DOTNET")
       require("easy-dotnet").setup({
         lsp = {
           enabled = true,
