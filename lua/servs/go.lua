@@ -1,8 +1,11 @@
-local M = {}
-
-M.config = function(capabilities)
-  vim.lsp.config("lua_ls", {
-    capabilities = capabilities,
+return {
+  name = "lua_ls",
+  servers = {
+    "lua-language-server",
+    "luacheck",
+    "stylua",
+  },
+  config = {
     filetypes = { "lua" },
     settings = {
       Lua = {
@@ -17,7 +20,11 @@ M.config = function(capabilities)
         },
       },
     },
-  })
-end
-
-return M
+  },
+  efmConfig = {
+    lua = {
+      linter = "luacheck",
+      formatter = "stylua",
+    },
+  },
+}

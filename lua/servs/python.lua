@@ -1,8 +1,11 @@
-local M = {}
-
-M.config = function(capabilities)
-  vim.lsp.config("pyright", {
-    capabilities = capabilities,
+return {
+  name = "pyright",
+  servers = {
+    "pyright",
+    "flake8",
+    "black",
+  },
+  config = {
     filetypes = { "python" },
     settings = {
       pyright = {
@@ -15,7 +18,11 @@ M.config = function(capabilities)
         },
       },
     },
-  })
-end
-
-return M
+  },
+  efmConfig = {
+    python = {
+      linter = "flake8",
+      formatter = "black",
+    },
+  },
+}

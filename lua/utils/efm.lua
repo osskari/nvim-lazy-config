@@ -1,6 +1,6 @@
 local M = {}
 
-M.file_types = function(dependencies)
+M.efm_file_types = function(dependencies)
   local types = {}
 
   for k, _ in pairs(dependencies) do
@@ -22,13 +22,13 @@ local require_dependencies = function(dependencies)
   local requires = {}
 
   for value, key in pairs(unique_pairs) do
-    requires[value] = require('efmls-configs.' .. key .. 's.' .. value)
+    requires[value] = require("efmls-configs." .. key .. "s." .. value)
   end
 
   return requires
 end
 
-M.configure_languages = function(dependencies)
+M.efm_configure_languages = function(dependencies)
   local config = require_dependencies(dependencies)
 
   local languages = {}

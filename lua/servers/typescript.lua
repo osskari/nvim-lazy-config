@@ -1,8 +1,6 @@
-local M = {}
-
-M.config = function(capabilities)
-  vim.lsp.config("ts_ls", {
-    capabilities = capabilities,
+return {
+  name = "ts_ls",
+  config = {
     filetypes = {
       "typescript",
       "javascript",
@@ -15,7 +13,5 @@ M.config = function(capabilities)
         intentSize = 2,
       },
     },
-  })
-end
-
-return M
+  },
+}
