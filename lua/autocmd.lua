@@ -1,8 +1,3 @@
--- ================================================================================================
--- TITLE : auto-commands
--- ABOUT : automatically run code on defined events (e.g. save, yank)
--- ================================================================================================
-
 local function augroup(name)
   return vim.api.nvim_create_augroup("osskari_" .. name, { clear = true })
 end
@@ -59,4 +54,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.colorcolumn = "120"
   end,
 })
-

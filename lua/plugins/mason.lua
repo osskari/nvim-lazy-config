@@ -1,3 +1,10 @@
+-- add deps
+vim.pack.add({
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/creativenull/efmls-configs-nvim",
+})
+
+-- config
 local mason = require("mason")
 mason.setup()
 
@@ -33,11 +40,13 @@ local servers = {
   "shfmt",
 }
 
-local masonRegistry = require("mason-registry")
+local registry = require("mason-registry")
 
-for _, server in ipairs(servers) do
-  if not masonRegistry.is_installed(server) then
-    local luals = masonRegistry.get_package(server)
-    luals:install()
+registry.refresh(function ()
+  for _, server in ipairs(servers) do
+    if not registry.is_installed(server) then
+      local packageInfo = registry.get_package(server)
+      packageInfo:install()
+    end
   end
-end
+end)

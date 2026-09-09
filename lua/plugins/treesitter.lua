@@ -1,8 +1,14 @@
-require("nvim-treesitter").setup({
+-- add deps
+vim.pack.add({"https://github.com/nvim-treesitter/nvim-treesitter"})
+
+-- config
+local treesitter = require("nvim-treesitter")
+
+treesitter.setup({
   install_dir = vim.fn.stdpath("data") .. "/site",
 })
 
-require("nvim-treesitter").install({
+treesitter.install({
   "bash",
   "c",
   "css",
@@ -21,7 +27,6 @@ require("nvim-treesitter").install({
   "python",
   "rust",
   "sql",
-  "tmux",
   "tsx",
   "typescript",
   "yaml",

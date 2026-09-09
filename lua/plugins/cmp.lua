@@ -1,3 +1,31 @@
+-- add deps
+-- -- add luasnip first
+vim.pack.add({
+  "https://github.com/L3MON4D3/LuaSnip",
+})
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name, kind = ev.data.spec.name, ev.data.kind
+
+    if name == 'LuaSnip' and (kind == 'install' or kind == 'update') then
+      vim.fn.system("make install_jsregexp")
+    end
+  end
+})
+
+-- -- add cmp and it's deps
+vim.pack.add({
+  "https://github.com/hrsh7th/nvim-cmp",
+  -- deps
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-buffer",
+  "https://github.com/hrsh7th/cmp-path",
+  "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help",
+  "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/saadparwaiz1/cmp_luasnip",
+})
+
+-- config
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 

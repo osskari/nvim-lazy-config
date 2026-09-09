@@ -1,21 +1,37 @@
+-- opts
 require("opts")
+-- base keybinds
 require("keymap")
+-- base autocmds
 require("autocmd")
+-- colorscheme
+require("colorscheme")
 
-require("deps")
-
-vim.cmd.colorscheme("catppuccin-nvim")
-
-require("plugins.cmp")
+-- fzf-lua
 require("plugins.fzf-lua")
+-- nvim-tree
+require("plugins.filetree")
+-- gitsigns
 require("plugins.gitsigns")
+-- harpoon
 require("plugins.harpoon")
-require("plugins.mason")
+-- lualine
 require("plugins.lualine")
-require("plugins.mini")
+-- scrollEOF
 require("plugins.scrollEOF")
+-- mason
+require("plugins.mason")
+-- mini
+require("plugins.mini")
+-- snacks
 require("plugins.snacks")
+-- treesitter
 require("plugins.treesitter")
+-- cmp
+require("plugins.cmp")
+-- lsp
 require("plugins.lsp")
+-- trouble
 require("plugins.trouble")
+-- easy-dotnet
 require("plugins.easy-dotnet")
