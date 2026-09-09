@@ -26,6 +26,7 @@ local servers = {
   -- typescript
   "typescript-language-server",
   -- efm
+  "efm",
   "prettier",
   "revive",
   "gofumpt",
