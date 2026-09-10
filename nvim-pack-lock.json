@@ -29,7 +29,7 @@
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
     "easy-dotnet.nvim": {
-      "rev": "640612c3d1f691ed47074ae0b262670057b18445",
+      "rev": "bde7a1cf7c4dbad61d68b2ca41672bfe194b06f8",
       "src": "https://github.com/GustavEikaas/easy-dotnet.nvim"
     },
     "efmls-configs-nvim": {
@@ -102,7 +102,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-lspconfig": {
-      "rev": "84b6b6c3f13cb34a6c8a0354b0da4c67d8ccf867",
+      "rev": "ac9d2f7c4757db6320cab6697fe73e5e8adb2457",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {

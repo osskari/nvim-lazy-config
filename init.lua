@@ -1,3 +1,5 @@
+-- cache imports
+require("loader")
 -- opts
 require("opts")
 -- base keybinds
