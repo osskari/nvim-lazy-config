@@ -1,7 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config["pyright"] = {
-  capabilities = capabilities,
+require("utils.lsp").configure("pyright", {
   filetypes = { "python" },
   settings = {
     pyright = {
@@ -14,6 +11,4 @@ vim.lsp.config["pyright"] = {
       },
     },
   },
-}
-vim.lsp.enable("pyright")
-
+})

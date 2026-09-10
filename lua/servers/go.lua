@@ -1,7 +1,3 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config["gopls"] = {
-  capabilities = capabilities,
+require("utils.lsp").configure("gopls", {
   filetypes = { "go" },
-}
-vim.lsp.enable("gopls")
+})

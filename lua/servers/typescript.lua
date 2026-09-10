@@ -1,7 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config["ts_ls"] = {
-  capabilities = capabilities,
+require("utils.lsp").configure("ts_ls", {
   filetypes = {
     "typescript",
     "javascript",
@@ -14,5 +11,4 @@ vim.lsp.config["ts_ls"] = {
       intentSize = 2,
     },
   }
-}
-vim.lsp.enable("ts_ls")
+})

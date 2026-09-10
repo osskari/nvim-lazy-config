@@ -1,7 +1,4 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-vim.lsp.config["lua_ls"] = {
-  capabilities = capabilities,
+require("utils.lsp").configure("lua_ls", {
   filetypes = { "lua" },
   settings = {
     Lua = {
@@ -16,5 +13,4 @@ vim.lsp.config["lua_ls"] = {
       },
     },
   },
-}
-vim.lsp.enable("lua_ls")
+})
