@@ -20,6 +20,15 @@ vim.diagnostic.config({
   },
 })
 
+-- set default capabilities
+local lspconfig_default = require("lspconfig").util.default_config
+
+lspconfig_default.capabilities = vim.tbl_deep_extend(
+  "force",
+  lspconfig_default.capabilities,
+  require("blink.cmp").get_lsp_capabilities()
+)
+
 require("utils").require_all("servers")
 
 -- set up lsp attach bindings
