@@ -20,25 +20,7 @@ vim.diagnostic.config({
   },
 })
 
--- lua
-require("servers.lua")
--- bashls
-require("servers.bash")
--- fish
-require("servers.fish")
--- go
-require("servers.go")
--- python
-require("servers.python")
--- typescript
-require("servers.typescript")
--- yaml
-require("servers.yaml")
--- zig
-require("servers.zig")
--- efm
-require("servers.efm")
-
+require("utils").require_all("servers")
 
 -- set up lsp attach bindings
 vim.api.nvim_create_autocmd("LspAttach", {
