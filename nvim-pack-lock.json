@@ -109,10 +109,6 @@
       "rev": "882c54f2815bf6d02663d482c2cf9dbadf4e9b07",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
-    "nvim-treesitter": {
-      "rev": "5cb0114e6242625db56dd6440e945ed1ece10bc7",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
     "nvim-web-devicons": {
       "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
@@ -128,6 +124,10 @@
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "tree-sitter-manager.nvim": {
+      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",

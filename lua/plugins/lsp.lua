@@ -65,7 +65,6 @@ local languages = {
   jsonc = {eslint_d, fixjson},
   lua = {luacheck, stylua},
   markdown = {prettier},
-  -- nix = {},
   python = {flake8, black},
   sh = {shellcheck, shfmt},
   typescript = {eslint_d, prettier},
