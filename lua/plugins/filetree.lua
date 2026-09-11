@@ -15,6 +15,15 @@ local api = require("nvim-tree.api")
 
 vim.keymap.set("n", "<leader>ee", api.tree.toggle)
 vim.keymap.set("n", "<leader>ef", function()
+  -- TODO: logic
+  -- if in tree
+  -- -- if on last buffer
+  -- -- -- close
+  -- -- else
+  -- -- -- find last buffer
+  -- else
+  -- -- toggle
+
   -- if in a tree toggle it
   if api.tree.is_tree_buf() then
     api.tree.toggle()
