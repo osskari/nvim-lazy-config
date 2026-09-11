@@ -5,7 +5,7 @@ vim.pack.add({
   -- lazy loading
   "https://github.com/lumen-oss/lz.n",
   -- needed for one helper
-  "https://github.com/folke/snacks.nvim"
+  "https://github.com/folke/snacks.nvim",
 })
 
 -- config
@@ -14,9 +14,9 @@ local lzn = require("lz.n")
 lzn.load({
   {
     "easy-dotnet.nvim",
-    enabled = function ()
+    enabled = function()
       local directory = Snacks.git.get_root()
-      local extensions = {"csproj", "sln", "slnx"}
+      local extensions = { "csproj", "sln", "slnx" }
 
       for _, ext in ipairs(extensions) do
         ext = ext:gsub("^%.", "")
@@ -87,5 +87,5 @@ lzn.load({
         background_scanning = true,
       })
     end,
-  }
+  },
 })

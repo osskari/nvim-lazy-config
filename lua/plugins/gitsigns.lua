@@ -1,5 +1,5 @@
 -- add deps
-vim.pack.add({"https://github.com/lewis6991/gitsigns.nvim"})
+vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
 
 -- config
 require("gitsigns").setup({
@@ -9,5 +9,5 @@ require("gitsigns").setup({
     delete = { text = "_" },
     topdelete = { text = "‾" },
     changedelete = { text = "~" },
-  }
+  },
 })

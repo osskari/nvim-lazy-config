@@ -10,5 +10,5 @@ require("utils.lsp").configure("ts_ls", {
       indentStyle = "space",
       intentSize = 2,
     },
-  }
+  },
 })

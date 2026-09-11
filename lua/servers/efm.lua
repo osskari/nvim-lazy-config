@@ -1,4 +1,4 @@
-local req_efm = function (name, type)
+local req_efm = function(name, type)
   return require("efmls-configs." .. type .. "s." .. name)
 end
 
@@ -15,21 +15,21 @@ local shellcheck = req_efm("shellcheck", "linter")
 local shfmt = req_efm("shfmt", "formatter")
 
 local languages = {
-  css = {prettier},
-  docker = {prettier},
-  go = {go_revive, gofumpt},
-  html = {prettier},
-  javascript = {eslint_d, prettier},
-  javascriptreact = {eslint_d, prettier},
-  json = {eslint_d, fixjson},
-  jsonc = {eslint_d, fixjson},
-  lua = {luacheck, stylua},
-  markdown = {prettier},
-  python = {flake8, black},
-  sh = {shellcheck, shfmt},
-  typescript = {eslint_d, prettier},
-  typescriptreact = {eslint_d, prettier},
-  yaml = {prettier},
+  css = { prettier },
+  docker = { prettier },
+  go = { go_revive, gofumpt },
+  html = { prettier },
+  javascript = { eslint_d, prettier },
+  javascriptreact = { eslint_d, prettier },
+  json = { eslint_d, fixjson },
+  jsonc = { eslint_d, fixjson },
+  lua = { luacheck, stylua },
+  markdown = { prettier },
+  python = { flake8, black },
+  sh = { shellcheck, shfmt },
+  typescript = { eslint_d, prettier },
+  typescriptreact = { eslint_d, prettier },
+  yaml = { prettier },
 }
 
 local efmls_config = {
@@ -45,7 +45,7 @@ local efmls_config = {
     documentSymbol = true,
     codeAction = true,
     completion = true,
-  }
+  },
 }
 
 vim.lsp.config("efm", efmls_config)

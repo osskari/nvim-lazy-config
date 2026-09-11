@@ -1,1 +1,1 @@
-require("utils.lsp").configure("yamlls", { })
+require("utils.lsp").configure("yamlls", {})

@@ -1,1 +1,1 @@
-require("utils.lsp").configure("fish_lsp", { })
+require("utils.lsp").configure("fish_lsp", {})

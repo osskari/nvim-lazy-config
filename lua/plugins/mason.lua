@@ -43,7 +43,7 @@ local servers = {
 
 local registry = require("mason-registry")
 
-registry.refresh(function ()
+registry.refresh(function()
   for _, server in ipairs(servers) do
     if not registry.is_installed(server) then
       local packageInfo = registry.get_package(server)

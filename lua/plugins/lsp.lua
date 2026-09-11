@@ -23,11 +23,8 @@ vim.diagnostic.config({
 -- set default capabilities
 local lspconfig_default = require("lspconfig").util.default_config
 
-lspconfig_default.capabilities = vim.tbl_deep_extend(
-  "force",
-  lspconfig_default.capabilities,
-  require("blink.cmp").get_lsp_capabilities()
-)
+lspconfig_default.capabilities =
+    vim.tbl_deep_extend("force", lspconfig_default.capabilities, require("blink.cmp").get_lsp_capabilities())
 
 require("utils").require_all("servers")
 
@@ -44,19 +41,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = bufnr,
     }
 
-    keymap("n", "K", vim.lsp.buf.hover, opts)                                                     -- hover docs
-    keymap("n", "gd", vim.lsp.buf.definition, opts)                                               -- goto definition
-    keymap("n", "gD", vim.lsp.buf.declaration, opts)                                              -- goto declaration
-    keymap("n", "gi", vim.lsp.buf.implementation, opts)                                           -- goto implementation
-    keymap("n", "<leader>go", vim.lsp.buf.type_definition, opts)                                  -- go to type definition
-    keymap("n", "<leader>gr", vim.lsp.buf.references, opts)                                       -- go to references
-    keymap("n", "<leader>gs", vim.lsp.buf.signature_help, opts)                                   -- signature help
-    keymap("n", "<leader>cr", vim.lsp.buf.rename, opts)                                           -- rename symbol
-    keymap({ "n", "x" }, "<leader>cf", function() vim.lsp.buf.format({ async = true }) end, opts) -- format buffer
-    keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)                                      -- code action
-    keymap("n", "Q", vim.diagnostic.open_float, opts)                                             -- cursor diagnostic
-    keymap("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)     -- previous diagnostic
-    keymap("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)      -- next diagnostic
+    keymap("n", "K", vim.lsp.buf.hover, opts)                  -- hover docs
+    keymap("n", "gd", vim.lsp.buf.definition, opts)            -- goto definition
+    keymap("n", "gD", vim.lsp.buf.declaration, opts)           -- goto declaration
+    keymap("n", "gi", vim.lsp.buf.implementation, opts)        -- goto implementation
+    keymap("n", "<leader>go", vim.lsp.buf.type_definition, opts) -- go to type definition
+    keymap("n", "<leader>gr", vim.lsp.buf.references, opts)    -- go to references
+    keymap("n", "<leader>gs", vim.lsp.buf.signature_help, opts) -- signature help
+    keymap("n", "<leader>cr", vim.lsp.buf.rename, opts)        -- rename symbol
+    keymap({ "n", "x" }, "<leader>cf", function()
+      vim.lsp.buf.format({ async = true })
+    end, opts)                                             -- format buffer
+    keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
+    keymap("n", "Q", vim.diagnostic.open_float, opts)      -- cursor diagnostic
+    keymap("n", "[d", function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end, opts) -- previous diagnostic
+    keymap("n", "]d", function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end, opts) -- next diagnostic
 
     -- fzf binds
     local fzf = require("fzf-lua")
@@ -66,6 +69,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "<leader>fs", fzf.lsp_document_symbols, opts)
     keymap("n", "<leader>fS", fzf.lsp_workspace_symbols)
     keymap("n", "<leader>fi", fzf.lsp_implementations, opts)
-  end
-  ,
+  end,
 })

@@ -1,5 +1,5 @@
 -- add deps
-vim.pack.add({"https://github.com/folke/snacks.nvim"})
+vim.pack.add({ "https://github.com/folke/snacks.nvim" })
 
 -- config
 require("snacks").setup({
@@ -35,8 +35,16 @@ require("snacks").setup({
 })
 
 -- bufdelete
-vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Close the current buffer" })
+vim.keymap.set("n", "<leader>bd", function()
+  Snacks.bufdelete()
+end, { desc = "Close the current buffer" })
+
 -- lazygit
-vim.keymap.set("n", "<leader>lg", function() Snacks.lazygit.open() end, { desc = "Open lazygit" })
+vim.keymap.set("n", "<leader>lg", function()
+  Snacks.lazygit.open()
+end, { desc = "Open lazygit" })
+
 -- terminal
-vim.keymap.set({ "n", "t" }, "<c-t>", function() Snacks.terminal.toggle(nil, {  }) end, { desc = "Toggle terminal" })
+vim.keymap.set({ "n", "t" }, "<c-t>", function()
+  Snacks.terminal.toggle(nil, {})
+end, { desc = "Toggle terminal" })

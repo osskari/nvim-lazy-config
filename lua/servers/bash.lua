@@ -1,3 +1,3 @@
 require("utils.lsp").configure("bashls", {
-  filetypes = { "sh", "bash", "zsh", },
+  filetypes = { "sh", "bash", "zsh" },
 })
