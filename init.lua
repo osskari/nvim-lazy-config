@@ -8,6 +8,8 @@ require("keymap")
 require("autocmd")
 -- colorscheme
 require("colorscheme")
+-- startuptime
+vim.pack.add({ "https://github.com/dstein64/vim-startuptime" })
 
 -- fzf-lua
 require("plugins.fzf-lua")
