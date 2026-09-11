@@ -14,11 +14,25 @@ cmp.setup({
   },
   completion = {
     documentation = {
-      auto_show = false,
+      auto_show = true,
+    },
+    menu = {
+      draw = {
+        columns = {
+          {
+            "label",
+            "label_description",
+            gap = 1,
+          },
+          {
+            "kind_icon",
+            "kind",
+          },
+        },
+      },
     },
   },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
   },
 })
-
