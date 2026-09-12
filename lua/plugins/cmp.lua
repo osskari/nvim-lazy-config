@@ -32,6 +32,7 @@ cmp.setup({
       },
     },
   },
+  signature = { enabled = true },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
   },
