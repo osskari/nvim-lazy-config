@@ -39,6 +39,8 @@ local servers = {
   "black",
   "shellcheck",
   "shfmt",
+  "sqlfluff",
+  "sql-formatter"
 }
 
 local registry = require("mason-registry")
