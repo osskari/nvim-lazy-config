@@ -2,6 +2,7 @@
 vim.pack.add({
   "https://github.com/saghen/blink.lib",
   "https://github.com/saghen/blink.cmp",
+  "https://github.com/rafamadriz/friendly-snippets",
 })
 
 -- config
@@ -35,5 +36,12 @@ cmp.setup({
   signature = { enabled = true },
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
+    providers = {
+      snippets = {
+        opts = {
+          friendly_snippets = true,
+        },
+      },
+    },
   },
 })
