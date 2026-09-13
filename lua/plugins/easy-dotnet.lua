@@ -11,24 +11,20 @@ vim.pack.add({
 -- config
 local lzn = require("lz.n")
 
+local extensions = { sln = true, slnx = true, csproj = true, fsproj = true }
+
 lzn.load({
   {
     "easy-dotnet.nvim",
     enabled = function()
-      -- TODO: this breaks sometimes
-      local directory = Snacks.git.get_root()
-      local extensions = { "csproj", "sln", "slnx" }
+      local root = vim.fs.root(0, function (name, _)
+        return extensions[vim.fs.ext(name)] == true
+      end)
 
-      for _, ext in ipairs(extensions) do
-        ext = ext:gsub("^%.", "")
-        -- Check if any files match
-        if #vim.fn.glob(directory .. "/**/*." .. ext, false, true) > 0 then
-          return true
-        end
-      end
-      return false
+      return root ~= nil
     end,
     after = function()
+      print("easy-dotnet enabled")
       require("easy-dotnet").setup({
         lsp = {
           enabled = true,
