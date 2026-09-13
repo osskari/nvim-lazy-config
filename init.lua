@@ -39,3 +39,5 @@ require("plugins.lsp")
 require("plugins.trouble")
 -- easy-dotnet
 require("plugins.easy-dotnet")
+-- debugger
+require("plugins.debugger")
