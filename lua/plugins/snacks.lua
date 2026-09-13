@@ -44,6 +44,14 @@ vim.keymap.set("n", "<leader>lg", function()
   Snacks.lazygit.open()
 end, { desc = "Open lazygit" })
 
+vim.keymap.set("n", "<leader>ll", function()
+  Snacks.lazygit.log()
+end, { desc = "Open git log" })
+
+vim.keymap.set("n", "<leader>lf", function()
+  Snacks.lazygit.log_file()
+end, { desc = "Open git log for buffer" })
+
 -- terminal
 vim.keymap.set({ "n", "t" }, "<c-t>", function()
   Snacks.terminal.toggle(nil, {})
