@@ -15,6 +15,7 @@ lzn.load({
   {
     "easy-dotnet.nvim",
     enabled = function()
+      -- TODO: this breaks sometimes
       local directory = Snacks.git.get_root()
       local extensions = { "csproj", "sln", "slnx" }
 
@@ -75,6 +76,14 @@ lzn.load({
             close = { lhs = "q", desc = "close testrunner" },
             refresh_testrunner = { lhs = "<C-r>", desc = "refresh testrunner" },
             cancel = { lhs = "<C-c>", desc = "cancel in-flight operation" },
+          },
+        },
+        auto_bootstrap_namespace = {
+          enabled = true,
+          type = "file_scoped",
+          use_clipboard_json = {
+            behavior = "prompt",
+            register = "+",
           },
         },
         csproj_mappings = true,
