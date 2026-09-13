@@ -42,7 +42,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "lz.n": {
-      "rev": "51f6451e2d9d0367cfb5e5cd136e1b62f7cace23",
+      "rev": "f0326ab386ce4aff9c9374f9b0f1fae326380ca6",
       "src": "https://github.com/lumen-oss/lz.n"
     },
     "mason.nvim": {
@@ -78,7 +78,7 @@
       "src": "https://github.com/nvim-mini/mini.trailspace"
     },
     "nvim-dap": {
-      "rev": "c9a0738e45f1bd41d792a126941348dce661cf9b",
+      "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-lspconfig": {
