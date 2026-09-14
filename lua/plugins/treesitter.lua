@@ -4,7 +4,7 @@ vim.pack.add({ "https://github.com/romus204/tree-sitter-manager.nvim" })
 -- config
 require("tree-sitter-manager").setup({
   ensure_installed = {
-    "bash",
+    -- "bash",
     "c",
     "css",
     "c_sharp",
@@ -15,7 +15,7 @@ require("tree-sitter-manager").setup({
     "javascript",
     "json",
     "kdl",
-    "lua",
+    -- "lua",
     "markdown",
     "markdown_inline",
     "nix",

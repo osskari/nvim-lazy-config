@@ -32,13 +32,13 @@ local servers = {
   "gofumpt",
   "eslint_d",
   "fixjson",
-  "luacheck",
-  "stylua",
+  -- "luacheck",
+  -- "stylua",
   -- "alejandra", -- nix only
   "flake8",
   "black",
-  "shellcheck",
-  "shfmt",
+  -- "shellcheck",
+  -- "shfmt",
   "sqlfluff",
   "sql-formatter"
 }

@@ -9,15 +9,15 @@ M.req_efm = function(name, type)
   return require("efmls-configs." .. type .. "s." .. name)
 end
 
-M.mason_install = function (server)
+M.mason_install = function (servers)
   local registry = require("mason-registry")
 
-  registry.refresh(function ()
+  for _, server in ipairs(servers) do
     if not registry.is_installed(server) then
       local packageInfo = registry.get_package(server)
       packageInfo:install()
     end
-  end)
+  end
 end
 
 return M

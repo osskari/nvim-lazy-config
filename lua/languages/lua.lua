@@ -1,10 +1,15 @@
-local utils = require("utils.lsp")
+local lsp_utils = require("utils.lsp")
+local utils = require("utils")
 
 -- treesitter
-require("tree-sitter-manager")._install_single("lua")
+utils.ensure_treesitter_installed("lua")
 
 -- mason
-utils.mason_install("lua-language-server")
+lsp_utils.mason_install({
+  "lua-language-server",
+  "luacheck",
+  "stylua",
+})
 
 -- lsp
 require("utils.lsp").configure("lua_ls", {
@@ -25,8 +30,8 @@ require("utils.lsp").configure("lua_ls", {
 })
 
 -- efm
-local go_revive = utils.req_efm("go_revive", "linter")
-local gofumpt = utils.req_efm("gofumpt", "formatter")
+local go_revive = lsp_utils.req_efm("go_revive", "linter")
+local gofumpt = lsp_utils.req_efm("gofumpt", "formatter")
 
 vim.lsp.config("efm", {
   filetypes = { "lua" },

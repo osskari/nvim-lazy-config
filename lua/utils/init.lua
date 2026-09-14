@@ -25,4 +25,18 @@ M.require_all = function(dir)
   end
 end
 
+M.ensure_treesitter_installed = function(filetype)
+  local queries_path = vim.fn.stdpath('data') .. '/site/queries'
+
+  for name, type in vim.fs.dir(queries_path) do
+    if type == "directory" or type == "link" then
+      if name:match(filetype) then
+        return
+      end
+    end
+  end
+
+  require("tree-sitter-manager")._install_single(filetype)
+end
+
 return M
