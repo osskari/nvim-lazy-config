@@ -1,18 +1,16 @@
-local req_efm = function(name, type)
-  return require("efmls-configs." .. type .. "s." .. name)
-end
+local utils = require("utils.lsp")
 
-local prettier = req_efm("prettier", "formatter")
-local eslint_d = req_efm("eslint_d", "linter")
-local go_revive = req_efm("go_revive", "linter")
-local gofumpt = req_efm("gofumpt", "formatter")
-local fixjson = req_efm("fixjson", "formatter")
-local luacheck = req_efm("luacheck", "linter")
-local stylua = req_efm("stylua", "formatter")
-local flake8 = req_efm("flake8", "linter")
-local black = req_efm("black", "formatter")
-local shellcheck = req_efm("shellcheck", "linter")
-local shfmt = req_efm("shfmt", "formatter")
+local prettier = utils.req_efm("prettier", "formatter")
+local eslint_d = utils.req_efm("eslint_d", "linter")
+local go_revive = utils.req_efm("go_revive", "linter")
+local gofumpt = utils.req_efm("gofumpt", "formatter")
+local fixjson = utils.req_efm("fixjson", "formatter")
+-- local luacheck = utils.req_efm("luacheck", "linter")
+-- local stylua = utils.req_efm("stylua", "formatter")
+local flake8 = utils.req_efm("flake8", "linter")
+local black = utils.req_efm("black", "formatter")
+local shellcheck = utils.req_efm("shellcheck", "linter")
+local shfmt = utils.req_efm("shfmt", "formatter")
 
 local languages = {
   css = { prettier },
@@ -23,7 +21,7 @@ local languages = {
   javascriptreact = { eslint_d, prettier },
   json = { eslint_d, fixjson },
   jsonc = { eslint_d, fixjson },
-  lua = { luacheck, stylua },
+  -- lua = { luacheck, stylua },
   markdown = { prettier },
   python = { flake8, black },
   sh = { shellcheck, shfmt },

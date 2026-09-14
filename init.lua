@@ -11,4 +11,7 @@ require("colorscheme")
 -- startuptime
 vim.pack.add({ "https://github.com/dstein64/vim-startuptime" })
 
-require("utils").require_all("plugins")
+local utils = require("utils")
+
+utils.require_all("plugins")
+utils.require_all("languages")
