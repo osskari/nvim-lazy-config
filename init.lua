@@ -11,33 +11,4 @@ require("colorscheme")
 -- startuptime
 vim.pack.add({ "https://github.com/dstein64/vim-startuptime" })
 
--- fzf-lua
-require("plugins.fzf-lua")
--- nvim-tree
-require("plugins.filetree")
--- gitsigns
-require("plugins.gitsigns")
--- harpoon
-require("plugins.harpoon")
--- lualine
-require("plugins.lualine")
--- scrollEOF
-require("plugins.scrollEOF")
--- mason
-require("plugins.mason")
--- mini
-require("plugins.mini")
--- snacks
-require("plugins.snacks")
--- treesitter
-require("plugins.treesitter")
--- cmp
-require("plugins.cmp")
--- lsp
-require("plugins.lsp")
--- trouble
-require("plugins.trouble")
--- easy-dotnet
-require("plugins.easy-dotnet")
--- debugger
-require("plugins.debugger")
+require("utils").require_all("plugins")
