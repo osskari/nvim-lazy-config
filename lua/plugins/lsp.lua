@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap({ "n", "x" }, "<leader>cf", function()
       vim.lsp.buf.format({ async = true })
     end, opts)                                             -- format buffer
-    keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
     keymap("n", "Q", vim.diagnostic.open_float, opts)      -- cursor diagnostic
     keymap("n", "[d", function()
       vim.diagnostic.jump({ count = -1, float = true })
@@ -63,6 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- fzf binds
     local fzf = require("fzf-lua")
+    keymap("n", "<leader>ca", fzf.lsp_code_actions, opts) -- code action
     keymap("n", "<leader>fd", fzf.lsp_finder, opts)
     keymap("n", "<leader>fr", fzf.lsp_references, opts)
     keymap("n", "<leader>ft", fzf.lsp_typedefs, opts)

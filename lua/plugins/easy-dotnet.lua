@@ -6,6 +6,7 @@ vim.pack.add({
   "https://github.com/lumen-oss/lz.n",
   -- needed for one helper
   "https://github.com/folke/snacks.nvim",
+  "https://github.com/ibhagwan/fzf-lua"
 })
 
 -- config
