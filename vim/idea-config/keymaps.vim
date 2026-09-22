@@ -44,7 +44,7 @@ map <leader>cf <Action>(ReformatCode)
 map <leader>cr <Action>(RenameElement)
 map <leader>ca <Action>(ShowIntentionActions)
 
-map <leader>eh <Action>(ShowErrorDescription)
+map Q <Action>(ShowErrorDescription)
 map <leader>en <Action>(GotoNextError)
 map <leader>ep <Action>(GotoPreviousError)
 map <leader>xx <Action>(ActivateProblemsViewToolWindow)

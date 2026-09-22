@@ -25,7 +25,6 @@ lzn.load({
       return root ~= nil
     end,
     after = function()
-      print("easy-dotnet enabled")
       require("easy-dotnet").setup({
         lsp = {
           enabled = true,
