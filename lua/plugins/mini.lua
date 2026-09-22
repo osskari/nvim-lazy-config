@@ -30,4 +30,6 @@ require("mini.surround").setup({})
 -- icons
 require("mini.icons").setup({})
 -- trailspace
-require("mini.trailspace").setup({})
+require("mini.trailspace").setup({
+  only_in_normal_buffers = true,
+})

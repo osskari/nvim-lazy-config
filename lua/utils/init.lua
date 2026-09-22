@@ -39,4 +39,13 @@ M.ensure_treesitter_installed = function(filetype)
   require("tree-sitter-manager")._install_single(filetype)
 end
 
+M.url = function (type, path)
+  local prefix = nil
+  if type == "github" then
+    prefix = "https://github.com/"
+  end
+
+  return prefix .. path
+end
+
 return M
