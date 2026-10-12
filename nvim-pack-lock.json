@@ -145,10 +145,6 @@
     "vim-startuptime": {
       "rev": "5f33e50f1e2e2a80370c9094e4c303ea54cd2aea",
       "src": "https://github.com/dstein64/vim-startuptime"
-    },
-    "vimspector": {
-      "rev": "34099d18d8957bb3db5f396c8ca993ffb246a437",
-      "src": "https://github.com/puremourning/vimspector"
     }
   }
 }

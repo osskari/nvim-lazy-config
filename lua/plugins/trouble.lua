@@ -2,7 +2,14 @@
 vim.pack.add({ "https://github.com/folke/trouble.nvim" })
 
 -- config
-require("trouble").setup({})
+require("trouble").setup({
+  modes = {
+    problems = {
+      desc = "Diagnostics and quickfix list",
+      sections = { "diagnostics", "qflist" },
+    },
+  },
+})
 
 vim.keymap.set("n", "<leader>xx", function()
   require("trouble").toggle("diagnostics")
@@ -11,6 +18,10 @@ end, { desc = "Diagnostics (Trouble)" })
 vim.keymap.set("n", "<leader>xX", function()
   require("trouble").toggle("diagnostics", { filter = { buf = 0 } })
 end, { desc = "Buffer diagnostics (Trouble)" })
+
+vim.keymap.set("n", "<leader>xa", function()
+  require("trouble").toggle("problems")
+end, { desc = "Diagnostics + quickfix (Trouble)" })
 
 vim.keymap.set("n", "<leader>xL", function()
   require("trouble").toggle("loclist")

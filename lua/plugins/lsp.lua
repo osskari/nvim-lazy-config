@@ -10,6 +10,12 @@ vim.pack.add({
 
 -- config
 vim.diagnostic.config({
+  virtual_text = {
+    spacing = 2,
+    prefix = "●",
+    source = "if_many",
+  },
+  severity_sort = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = " ",
