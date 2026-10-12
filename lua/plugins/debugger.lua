@@ -3,6 +3,7 @@ vim.pack.add({
   "https://github.com/mfussenegger/nvim-dap",
   "https://github.com/nvim-neotest/nvim-nio",
   "https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/theHamsta/nvim-dap-virtual-text",
 })
 
 local dap = require("dap")
@@ -352,6 +353,11 @@ dap.listeners.before.attach.dapui_config = function() dapui.open() end
 dap.listeners.before.launch.dapui_config = function() dapui.open() end
 dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
 dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
+
+-- variable values inline next to their definition while stopped (uses treesitter)
+require("nvim-dap-virtual-text").setup({
+  virt_text_pos = "eol",
+})
 
 vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "◆", texthl = "DiagnosticWarn" })
